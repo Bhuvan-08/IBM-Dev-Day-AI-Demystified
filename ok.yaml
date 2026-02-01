@@ -1,0 +1,38 @@
+openapi: 3.0.1
+info:
+  title: Risk Assessment Engine
+  description: Calculates risk scores for AI actions based on enterprise policy.
+  version: 1.0.0
+servers:
+  - url: https://ares-unconsolidating-cannon.ngrok-free.dev
+paths:
+  /assess_risk:
+    post:
+      summary: Assess the risk of a proposed user action
+      operationId: assessRisk
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  description: The specific task or command the user wants to perform.
+      responses:
+        "200":
+          description: Risk assessment result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  risk_score:
+                    type: integer
+                    description: 0-100 score indicating danger level.
+                  tier:
+                    type: string
+                    description: SAFE, WARN, or BLOCK.
+                  reason:
+                    type: string
+                    description: Explanation for the score.
