@@ -8,8 +8,8 @@ app = Flask(__name__)
 # ==========================================
 # 🔑 CREDENTIALS (PASTE YOURS HERE)
 # ==========================================
-API_KEY = "K4qbdLTp16kgqMB96KQen1TdFEIIpfB_RFeSN9fRg6tV"
-PROJECT_ID = "c6a95cdc-206f-4a18-96bb-00445ebcecc6"
+API_KEY = os.getenv("IBM_API_KEY")
+PROJECT_ID = os.getenv("IBM_PROJECT_ID")
 
 # IBM Watsonx Endpoint (US South is standard for hackathons)
 AUTH_URL = "https://iam.cloud.ibm.com/identity/token"
